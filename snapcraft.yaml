@@ -1,15 +1,16 @@
-name: notepad-plus-plus
-title: Notepad++ (WINE)
-summary: notepad-plus-plus is a free source code editor.
+name: winace
+title: WinACE (WINE)
+summary: This is a GUI client for Empire. Empire is a real time, multiplayer, Internet-based game played over months
 description: |
- Based on the powerful editing component Scintilla, notepad-plus-plus is written in C++ and uses pure Win32 API and STL which ensures a higher execution speed and smaller program size. By optimizing as many routines as possible without losing user friendliness, notepad-plus-plus is trying to reduce the world carbon dioxide emissions. When using less CPU power, the PC can throttle down and reduce power consumption, resulting in a greener environment.
+ While Empire is possessed of a great deal of complexities, with a bit of effort, it has proven to be the one definitive Internet experience for a great deal of people. Empire is the pinnacle of strategy games in today's world. There is none better. All the information needed to become involved is available here, the official site for the game of Empire.
 adopt-info: notepad-plus-plus
+
+icon:  EmpireMap_Icon2.png
 
 confinement: strict
 grade: stable
 architectures:
   - build-on: amd64
-  - build-on: i386
 base: core20
 compression: lzo
 
@@ -25,14 +26,14 @@ plugs:
 
 environment:
   WINEDLLOVERRIDES: "mscoree,mshtml=" # Prevent pop-ups about Wine Mono and Wine Gecko
-  RUN_EXE: "$SNAP_USER_DATA/notepad-plus-plus/notepad-plus-plus.exe"
+  RUN_EXE: "$SNAP_USER_DATA/winace/setup.exe"
   SOMMELIER_KEEP_CWD: "1" # Don't change the working directory so relative paths still work
   NO_AT_BRIDGE: "1" # Fix yad error Failed to connect to socket /tmp/dbus-xxx: No such file or directory
   DISABLE_WAYLAND: "1" # Fix gtk decoration under wayland session
   SYSTEM_WGETRC: $SNAP/wine-runtime/etc/wgetrc
 
 apps:
-  notepad-plus-plus:
+  winace:
     extensions: [ gnome-3-38 ]
     command: bin/sommelier run-exe
     plugs:
@@ -43,7 +44,7 @@ apps:
       - process-control
       - cups-control
       - removable-media
-    desktop: usr/share/applications/notepad-plus-plus.desktop
+    desktop: usr/share/applications/winace.desktop
   # The wine command can be used to run applications inside the wine
   # environment that this snap uses.
   #
@@ -68,7 +69,7 @@ apps:
       - network
 
 parts:
-  notepad-plus-plus:
+  winace:
     plugin: nil
     source: ./snap/local/src
     override-build: |
