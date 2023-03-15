@@ -1,0 +1,240 @@
+ %% PLEASE DO NOT MODIFY OR DELETE THIS FILE! %% 
+ %% This file contains information about the installation of an application. %% 
+ %% It will be used to automatically remove all application components from your computer if you choose to do so. %% 
+
+
+NOTE: Beginning of the bootstrapper section
+
+CONFIG: Title: "WinACE"
+
+ACTION: RegKey: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion", "SharedDLLs"
+
+ACTION: SystemFile: "C:\WINDOWS\SYSTEM32\VB6STKIT.DLL"
+(File currently on disk was already up to date)
+
+ACTION: SystemFile: "C:\WINDOWS\SYSTEM32\COMCAT.DLL"
+(File currently on disk was already up to date)
+
+ACTION: SystemFile: "C:\WINDOWS\SYSTEM32\STDOLE2.TLB"
+(File currently on disk was already up to date)
+
+ACTION: SystemFile: "C:\WINDOWS\SYSTEM32\ASYCFILT.DLL"
+(File currently on disk was already up to date)
+
+ACTION: SystemFile: "C:\WINDOWS\SYSTEM32\OLEPRO32.DLL"
+(File currently on disk was already up to date)
+
+ACTION: SystemFile: "C:\WINDOWS\SYSTEM32\OLEAUT32.DLL"
+(File currently on disk was already up to date)
+
+ACTION: SystemFile: "C:\WINDOWS\SYSTEM32\msvbvm60.dll"
+(File currently on disk was already up to date)
+
+ACTION: DllSelfRegister: "C:\WINDOWS\SYSTEM32\COMCAT.DLL"
+
+ACTION: TLBRegister: "C:\WINDOWS\SYSTEM32\STDOLE2.TLB"
+
+ACTION: DllSelfRegister: "C:\WINDOWS\SYSTEM32\OLEPRO32.DLL"
+
+ACTION: DllSelfRegister: "C:\WINDOWS\SYSTEM32\OLEAUT32.DLL"
+
+ACTION: DllSelfRegister: "C:\WINDOWS\SYSTEM32\msvbvm60.dll"
+
+NOTE: End of the bootstrapper section
+
+NOTE: Now spawning the main Setup program 'Setup1.exe'....
+
+ACTION: CreateDir: "C:\WinACE"
+
+ACTION: PrivateFile: "C:\WinACE\nuke.gif"
+(File was not found or was an older version -- new file copied)
+
+ACTION: PrivateFile: "C:\WinACE\version 2.5x changes.txt"
+(File was not found or was an older version -- new file copied)
+
+ACTION: PrivateFile: "C:\WinACE\xland.gif"
+(File was not found or was an older version -- new file copied)
+
+ACTION: PrivateFile: "C:\WinACE\xplane.gif"
+(File was not found or was an older version -- new file copied)
+
+ACTION: PrivateFile: "C:\WinACE\xship.gif"
+(File was not found or was an older version -- new file copied)
+
+ACTION: PrivateFile: "C:\WinACE\EmpData.mdb"
+(File was not found or was an older version -- new file copied)
+
+ACTION: PrivateFile: "C:\WinACE\WinACE User's Guide.html"
+(File was not found or was an older version -- new file copied)
+
+ACTION: PrivateFile: "C:\WinACE\version 2.4x changes.txt"
+(File was not found or was an older version -- new file copied)
+
+ACTION: PrivateFile: "C:\WinACE\readme.txt"
+(File was not found or was an older version -- new file copied)
+
+ACTION: PrivateFile: "C:\WinACE\plane.gif"
+(File was not found or was an older version -- new file copied)
+
+ACTION: PrivateFile: "C:\WinACE\old-licence.txt"
+(File was not found or was an older version -- new file copied)
+
+ACTION: PrivateFile: "C:\WinACE\nship.gif"
+(File was not found or was an older version -- new file copied)
+
+ACTION: PrivateFile: "C:\WinACE\nplane.gif"
+(File was not found or was an older version -- new file copied)
+
+ACTION: PrivateFile: "C:\WinACE\nland.gif"
+(File was not found or was an older version -- new file copied)
+
+ACTION: PrivateFile: "C:\WinACE\light.gif"
+(File was not found or was an older version -- new file copied)
+
+ACTION: PrivateFile: "C:\WinACE\light3.gif"
+(File was not found or was an older version -- new file copied)
+
+ACTION: PrivateFile: "C:\WinACE\light2.gif"
+(File was not found or was an older version -- new file copied)
+
+ACTION: PrivateFile: "C:\WinACE\license.txt"
+(File was not found or was an older version -- new file copied)
+
+ACTION: PrivateFile: "C:\WinACE\land.gif"
+(File was not found or was an older version -- new file copied)
+
+ACTION: PrivateFile: "C:\WinACE\ship.gif"
+(File was not found or was an older version -- new file copied)
+
+ACTION: PrivateFile: "C:\WinACE\fship.gif"
+(File was not found or was an older version -- new file copied)
+
+ACTION: PrivateFile: "C:\WinACE\fland.gif"
+(File was not found or was an older version -- new file copied)
+
+ACTION: PrivateFile: "C:\WinACE\eship.gif"
+(File was not found or was an older version -- new file copied)
+
+ACTION: PrivateFile: "C:\WinACE\FPLANE.GIF"
+(File was not found or was an older version -- new file copied)
+
+ACTION: PrivateFile: "C:\WinACE\eland.gif"
+(File was not found or was an older version -- new file copied)
+
+ACTION: PrivateFile: "C:\WinACE\eplane.gif"
+(File was not found or was an older version -- new file copied)
+
+ACTION: PrivateFile: "C:\WinACE\About.gif"
+(File was not found or was an older version -- new file copied)
+
+ACTION: SharedFile: "C:\windows\system32\hh.exe"
+(File currently on disk was already up to date)
+
+ACTION: SharedFile: "C:\windows\system32\itircl.dll"
+(File currently on disk was already up to date)
+
+ACTION: SharedFile: "C:\windows\system32\itss.dll"
+(File currently on disk was already up to date)
+
+ACTION: SharedFile: "C:\windows\system32\hhctrl.ocx"
+(File currently on disk was already up to date)
+
+ACTION: PrivateFile: "C:\WinACE\winace.chm"
+(File was not found or was an older version -- new file copied)
+
+ACTION: SharedFile: "C:\windows\system32\MSCOMCTL.OCX"
+(File currently on disk was already up to date)
+
+NOTE: The file 'RICHED32.DLL' was not copied because it is intended for use under Windows 95 only. It is not needed under Windows NT 3.51 or 4.0.
+
+ACTION: SharedFile: "C:\windows\system32\richtx32.ocx"
+(File currently on disk was already up to date)
+
+ACTION: SharedFile: "C:\windows\system32\msflxgrd.ocx"
+(File currently on disk was already up to date)
+
+ACTION: SharedFile: "C:\windows\system32\dblist32.ocx"
+(File currently on disk was already up to date)
+
+ACTION: SharedFile: "C:\windows\system32\comdlg32.ocx"
+(File currently on disk was already up to date)
+
+ACTION: SharedFile: "C:\windows\system32\MSWINSCK.OCX"
+(File currently on disk was already up to date)
+
+ACTION: SharedFile: "C:\windows\system32\VB5DB.DLL"
+(File currently on disk was already up to date)
+
+ACTION: SystemFile: "C:\windows\system32\msjtes40.dll"
+(File currently on disk was already up to date)
+
+ACTION: SystemFile: "C:\windows\system32\msrepl40.dll"
+(File currently on disk was already up to date)
+
+ACTION: SystemFile: "C:\windows\system32\msrd3x40.dll"
+(File currently on disk was already up to date)
+
+ACTION: SystemFile: "C:\windows\system32\msrd2x40.dll"
+(File currently on disk was already up to date)
+
+ACTION: SystemFile: "C:\windows\system32\mswdat10.dll"
+(File currently on disk was already up to date)
+
+ACTION: SystemFile: "C:\windows\system32\mswstr10.dll"
+(File currently on disk was already up to date)
+
+ACTION: SystemFile: "C:\windows\system32\expsrv.dll"
+(File currently on disk was already up to date)
+
+ACTION: SystemFile: "C:\windows\system32\vbajet32.dll"
+(File currently on disk was already up to date)
+
+ACTION: SystemFile: "C:\windows\system32\msjint40.dll"
+(File currently on disk was already up to date)
+
+ACTION: SystemFile: "C:\windows\system32\msjter40.dll"
+(File currently on disk was already up to date)
+
+ACTION: SystemFile: "C:\windows\system32\msjet40.dll"
+(File currently on disk was already up to date)
+
+ACTION: SharedFile: "C:\windows\system32\dao360.dll"
+(File currently on disk was already up to date)
+
+ACTION: PrivateFile: "C:\WinACE\WinACE.exe"
+(File was not found or was an older version -- new file copied)
+
+ACTION: DllSelfRegister: "C:\windows\system32\itircl.dll"
+
+ACTION: DllSelfRegister: "C:\windows\system32\itss.dll"
+
+ACTION: DllSelfRegister: "C:\windows\system32\hhctrl.ocx"
+
+ACTION: DllSelfRegister: "C:\windows\system32\MSCOMCTL.OCX"
+
+ACTION: DllSelfRegister: "C:\windows\system32\richtx32.ocx"
+
+ACTION: DllSelfRegister: "C:\windows\system32\msflxgrd.ocx"
+
+ACTION: DllSelfRegister: "C:\windows\system32\dblist32.ocx"
+
+ACTION: DllSelfRegister: "C:\windows\system32\comdlg32.ocx"
+
+ACTION: DllSelfRegister: "C:\windows\system32\MSWINSCK.OCX"
+
+ACTION: DllSelfRegister: "C:\windows\system32\msjtes40.dll"
+
+ACTION: DllSelfRegister: "C:\windows\system32\msrd3x40.dll"
+
+ACTION: DllSelfRegister: "C:\windows\system32\msrd2x40.dll"
+
+ACTION: DllSelfRegister: "C:\windows\system32\msjet40.dll"
+
+ACTION: DllSelfRegister: "C:\windows\system32\dao360.dll"
+
+ACTION: ShellLink: "WinACE", "WinACE"
+
+ACTION: RegKey: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion", "App Paths\WinACE.exe"
+
+ACTION: RegValue: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\WinACE.exe", ""
+
