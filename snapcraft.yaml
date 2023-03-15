@@ -71,7 +71,7 @@ apps:
 parts:
   winace:
     plugin: nil
-    source: ./snap/local/src
+    source: ./setup.exe
     override-build: |
       snapcraftctl build
       set -ex
