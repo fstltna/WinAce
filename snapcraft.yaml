@@ -1,108 +1,80 @@
 name: winace
-title: WinACE (WINE)
-summary: This is a GUI client for Wolfpack Empire
+title: WinACE
+version: "2.5.74"
+summary:  WinACE Empire client
 description: |
- While Empire is possessed of a great deal of complexities, with a bit of effort, it has proven to be the one definitive Internet experience for a great deal of people. Empire is the pinnacle of strategy games in today's world. There is none better. All the information needed to become involved is available here, the official site for the game of Empire.
-adopt-info: notepad-plus-plus
+  WinACE Empire client
 
-icon:  EmpireMap_Icon2.png
-
-confinement: strict
 grade: stable
+icon: EmpireMap_Icon2.png
+
+base: core18
+confinement: strict
+
 architectures:
   - build-on: amd64
-base: core20
-compression: lzo
-
-plugs:
-  wine-runtime-c20:
-    interface: content
-    target: $SNAP/wine-runtime
-    default-provider: wine-platform-runtime-core20
-  wine-7-devel:
-    interface: content
-    target: $SNAP/wine-platform
-    default-provider: wine-platform-7-devel-core20
+  - build-on: i386
 
 environment:
-  WINEDLLOVERRIDES: "mscoree,mshtml=" # Prevent pop-ups about Wine Mono and Wine Gecko
-  RUN_EXE: "$SNAP_USER_DATA/winace/setup.exe"
-  SOMMELIER_KEEP_CWD: "1" # Don't change the working directory so relative paths still work
-  NO_AT_BRIDGE: "1" # Fix yad error Failed to connect to socket /tmp/dbus-xxx: No such file or directory
-  DISABLE_WAYLAND: "1" # Fix gtk decoration under wayland session
-  SYSTEM_WGETRC: $SNAP/wine-runtime/etc/wgetrc
+  WINEDLLOVERRIDES: "$WINEDLLOVERRIDES;mscoree,mshtml="    # Prevent pop-ups about Wine Mono and Wine Gecko
+  SOMMELIER_STRICT: "1"                                    # Make Sommelier exit when unset variable is used. (useful to find bugs in sommelier)
 
 apps:
   winace:
-    extensions: [ gnome-3-38 ]
+    extensions: [ gnome-3-28 ]
     command: bin/sommelier run-exe
+    environment:
+      #RUN_EXE: "C:/Games/Future Pinball/Future Pinball.exe"
+      RUN_EXE: "WinACE.exe"
+      #INSTALL_EXE: "$SNAP/FuturePinballSetup_v1.9.1.20101231.exe"
+      #INSTALL_FLAGS: "/S"
     plugs:
-      - opengl
       - home
       - network
-      - hardware-observe
-      - process-control
-      - cups-control
+      - network-bind
       - removable-media
-    desktop: usr/share/applications/winace.desktop
+      - cups
   # The wine command can be used to run applications inside the wine
   # environment that this snap uses.
   #
   # For example, users can configure the wine environment of this snap
   # by running `myapp.wine winecfg`.
   wine:
-    extensions: [ gnome-3-38 ]
+    extensions: [ gnome-3-28 ]
     command: bin/sommelier
     plugs:
       - home
       - network
-      - hardware-observe
-      - process-control
-      - cups-control
+      - network-bind
       - removable-media
-  # The winetricks command can be used to run winetricks inside the wine
+      - cups
+ # The winetricks command can be used to run winetricks inside the wine
   # environment that this snap uses.
   winetricks:
-    extensions: [ gnome-3-38 ]
+    extensions: [ gnome-3-28 ]
     command: bin/sommelier winetricks
     plugs:
       - network
 
 parts:
-  winace:
-    plugin: nil
-    source: .
-    override-build: |
-      snapcraftctl build
-      set -ex
-      ver=$(wget 2>/dev/null https://github.com/notepad-plus-plus/notepad-plus-plus/releases -qSO- | grep -Eo ".*.x6" | head -1 | grep -Po "(\d+\.)+\d+")
-      snapcraftctl set-version "$ver"
-      ./dl_npp
-    stage:
-      - bin
-      - usr
-      - wine-platform
-      - wine-runtime
-      - winedata
-      - sommelier
-    build-packages: [wget]
-  # The sommelier script helps you snap Windows applications using Wine. It
+  installer:
+    plugin: dump
+    source: ./
+
+  # The sommelier script helps you snap Windows applications using Wine. It 
   # initializes and configures Wine and installs the Windows application.
   sommelier:
     plugin: make
-    source: https://github.com/mmtrt/sommelier-core.git
-    source-branch: "tmp-core20"
+    source: https://github.com/snapcrafters/sommelier-core.git
 
-  # This reverts changes from https://github.com/snapcore/snapcraft/pull/3586
-  fix-fontconfig:
-    plugin: nil
-    after: [gnome-3-38-extension]
-    override-prime: |
-      sed -i '/snap-package/,+1d' $SNAPCRAFT_PRIME/snap/command-chain/desktop-launch
+# These plugs are used to connect the snap to the wine runtime.
+plugs:
+  wine-runtime:
+    interface: content
+    target: $SNAP/wine-runtime
+    default-provider: wine-platform-runtime
+  wine-5-stable:
+    interface: content
+    target: $SNAP/wine-platform
+    default-provider: wine-platform-5-stable
 
-  fix-bindtext:
-    plugin: nil
-    after: [gnome-3-38-extension]
-    override-prime: |
-      sed -i "$(grep -in bindtext $SNAPCRAFT_PRIME/snap/command-chain/desktop-launch | cut -d':' -f1 | tail -2 | head -1)d" $SNAPCRAFT_PRIME/snap/command-chain/desktop-launch
-      sed -i "$(grep -in bindtext $SNAPCRAFT_PRIME/snap/command-chain/desktop-launch | cut -d':' -f1 | tail -1)d" $SNAPCRAFT_PRIME/snap/command-chain/desktop-launch
